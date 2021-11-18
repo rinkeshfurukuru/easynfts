@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@200&family=Poppins:wght@100&family=Rubik:wght@300&display=swap');
+.topvaults{
+    height: 700px;
+    width: 100%;
+    font-family: Inter,sans-serif;
+    background-color: #F4F5F6;
+}
+.container{
+    padding: 100px 50px;
+}
+.vault-title{
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.vaults-desc{
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+.volume-div{
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    background: #fff;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.volume-child{
+    display: flex;
+    margin-right: 2rem;
+}
+.vol-key{
+    margin-right: 0.25rem;
+    color: gray;
+    font-weight: 600;
+}
+.vol-value{
+    margin-right: 0.375rem;
+    font-weight: 600;
+}
+.list-title{
+    display: flex;
+    margin-bottom: 1rem;
+}
+.top-btn{
+    line-height: 1;
+    font-weight: 600;
+    font-size: .875rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.top-active{
+    background-color: #A9ED4A;
+}
+.top-header{
+    color: rgba(143,151,163,1);
+    font-weight: 700;
+    font-size: .75rem;
+    line-height: 1rem;
+    padding: 1rem 3rem;
+    border-top: 1px solid silver;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.top-title{
+    display: flex;
+}
+.topvaults-list{
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 1.5rem;
+}
+.top-row{
+    font-weight: 700;
+    font-size: .75rem;
+    line-height: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid silver;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.row-val{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: inherit;
+    text-decoration: inherit;
+}
+.c1{
+    flex-basis: 5%;
+    font-size: 0.7rem;
+}
+.c2{
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.c3, .c4, .c5, .c6{
+    flex-basis: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addrs{
+    color: rgba(143,151,163,1);
+    font-size: .75rem;
+    line-height: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.val-up{
+    color: rgba(69,178,107,1);
+    margin-left: 5px;
+}
+
+.val-down{
+    color: rgba(239,70,111,1);
+    margin-left: 5px;
+}
