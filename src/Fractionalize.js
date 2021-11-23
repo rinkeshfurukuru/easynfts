@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './App.css';
 import './Fractionalize.css';
-import sampleImg from './images/bg.svg'
-import cardbtn from './images/cardbtn.png'
+
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Navbar from './Navbar'
-import axios from "axios"
+import ABI from "../src/ABI/fraction.json"
+import { Web3Context } from './Context/Web3Context';
 function valuetext(value) {
     return `${value}°C`;
 }
@@ -14,15 +14,17 @@ function Fractionalize() {
     const [protocol20, setProtocol20] = useState(true)
     const [address, setAddress] = useState(null);
     const [assetList, setAssetList] = useState();
+    const web3 = useContext(Web3Context);
     
     async function fetchMyAPI() {
-        const response = await fetch("https://rinkeby-api.opensea.io/api/v1/assets?owner=0xee5c283aa0e67eb60f5a85bd4acef0c39f19f228");
+        const response = await fetch("https://rinkeby-api.opensea.io/api/v1/assets?owner="+web3?.address);
         const data = await response.json();
         setAssetList(data)
     }
     useEffect(()=>{
         fetchMyAPI()
-    },[])
+        console.log(web3);
+    },[web3])
     useEffect(()=>{
          if(assetList){
              console.log(assetList.assets[0])

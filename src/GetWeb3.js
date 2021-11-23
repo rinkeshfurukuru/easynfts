@@ -24,6 +24,7 @@ const getWeb3 = (provider_nos) =>
       
       }
     } else if (provider_nos === 0) {
+      debugger
       provider = window.ethereum;
     }
 

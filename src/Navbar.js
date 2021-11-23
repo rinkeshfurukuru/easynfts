@@ -1,16 +1,16 @@
 import './Navbar.css';
 import { GiHamburgerMenu } from "react-icons/gi"
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from 'react';
 import CopyToClipboard from "react-copy-to-clipboard";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
-import getWeb3 from "./GetWeb3";
+import { Web3Context } from './Context/Web3Context';
 
 const Navbar = () => {
     const [showMediaIcons, setShowMediaIcons] = useState(false);
     const [copied, setCopied] = React.useState(false);
-    const [web3, setWeb3] = useState(null);
-    const [address, setAddress] = useState();
+    const web3 = useContext(Web3Context);
+  
     
     const copyAddress = () => {
         setCopied(true);
@@ -23,31 +23,10 @@ const Navbar = () => {
             str.substr(0, n + 1) + "..."
         );
       };
-    useEffect(() => {
-        const getWeb3Instance = async () => {
-            const provider = await getWeb3(0);
-            setWeb3(provider);
-            const ethereum = window.ethereum
-            if (ethereum) {
-                setAddress(window.ethereum.selectedAddress)
-                // sendDataToParent(props.address);
-                ethereum.on('accountsChanged', function (accounts) {
-                    setAddress(accounts[0])
-                })
-            }   
-        }
-        const ethereum = window.ethereum
-        if (ethereum) {
-            setAddress(window.ethereum.selectedAddress)
-            // sendDataToParent(props.address);
-            ethereum.on('accountsChanged', function (accounts) {
-                setAddress(accounts[0])
-            })
-        }    
-        getWeb3Instance();
-    }, []);
+   
     return (
         <>
+       
             <nav className="main-div">
                 <div className="logo">
                     <h2>Easy Nft</h2>
@@ -65,11 +44,11 @@ const Navbar = () => {
                         <li className="connectbtn">
                             <a href="/" className="connectbtntxt">
                             <h4 className="connectaddr">
-                                {address ? truncate(address, 5) : "Connect Wallet"}
-                                {address ?
+                                {web3?.address ? truncate(web3?.address, 5) : "Connect Wallet"}
+                                {web3?.address ?
                                 <>
                                     <CopyToClipboard
-                                    text={address ? address : ""}
+                                    text={web3?.address ? web3?.address : ""}
                                     onCopy={copyAddress}
                                     >
                                     <FileCopyOutlinedIcon
@@ -92,6 +71,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
+        
         </>
     );
 }
