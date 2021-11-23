@@ -241,6 +241,31 @@
     flex-direction: column;
     display: flex;
     margin: 20px 10px;
+    cursor: pointer;
+}
+.asset-card:hover{
+    opacity: 0.4;
+}
+.selected-checkbox{
+    color: springgreen;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    opacity: 1;
+}
+.active{
+    opacity: 0.5;
+    background-color: teal;
+}
+.selected-asset{
+    display: none;
+}
+.active:hover .selected-checkbox {
+    display: block ;
+}
+.active:hover .selected-asset {
+    display: block; 
 }
 .card-img{
     flex-basis: 60%;

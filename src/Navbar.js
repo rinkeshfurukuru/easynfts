@@ -11,7 +11,6 @@ const Navbar = () => {
     const [copied, setCopied] = React.useState(false);
     const web3 = useContext(Web3Context);
   
-    
     const copyAddress = () => {
         setCopied(true);
         setTimeout(() => {
@@ -26,7 +25,6 @@ const Navbar = () => {
    
     return (
         <>
-       
             <nav className="main-div">
                 <div className="logo">
                     <h2>Easy Nft</h2>
