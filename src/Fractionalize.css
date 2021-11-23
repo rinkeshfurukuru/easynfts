@@ -5,9 +5,10 @@
     height: 80px;
     width: 100%;
     background: #060F24;
+    position: relative !important;
 }
 .fractionalize{
-    height: 750px;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -25,25 +26,24 @@
     display: flex;
     align-items: center;
     color: #fff;
-
 }
 .fra-left{
     flex-basis: 70%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-evenly;
     flex-direction: column;
-    height: 50%;
-    padding: 50px;
+    justify-content: flex-start;
+    height: 100%;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-top: 50px;
 }
 .fra-right{
+    top: 1px;
+    right: 1px;
     flex-basis: 30%;
-    background-image: url('./images/rightbg2.svg');
-    background-size: cover;
-    position: relative;
-    background-repeat: no-repeat;
-    height: 110%;
-    margin-top: -160px;
+    height: auto;
+    padding-top: 100px ;
 }
 .left-details{
     color: #fff;
@@ -102,6 +102,12 @@
     z-index: 40;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
+    position: fixed;
+    top: 0;
+
+    background-image: url('./images/rightbg2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .vaultdetail{
     font-family: Roboto;
@@ -212,4 +218,96 @@
     line-height: 1rem;
     color: #938E8E;
     text-decoration: underline;
+}
+
+/*============ card ===============*/
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+}
+.asset-card{
+    height: 400px;
+    width: 260px;
+    padding: 5px;
+    background: rgba(196, 196, 196, 0.35);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin: 20px 10px;
+}
+.card-img{
+    flex-basis: 60%;
+    width: 250px;
+    height: 250px;
+    object-fit: scale-down;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid silver;
+}
+.card-name{
+    width: 95%;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 5;
+}
+.card-desc{
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+}
+.desc-bg{
+    width: 95%;
+    height: 50px;
+    background: #F4FFDD;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+.asset-name{
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+.card-btn{
+    width: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-text{
+    position: absolute;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

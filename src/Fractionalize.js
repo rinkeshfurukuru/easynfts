@@ -1,43 +1,57 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import './Fractionalize.css';
+import sampleImg from './images/bg.svg'
+import cardbtn from './images/cardbtn.png'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Navbar from './Navbar'
+import axios from "axios"
 function valuetext(value) {
     return `${value}°C`;
 }
 function Fractionalize() {
     const [protocol20, setProtocol20] = useState(true)
+    const [address, setAddress] = useState(null);
+    const [assetList, setAssetList] = useState();
+    
+    async function fetchMyAPI() {
+        const response = await fetch("https://rinkeby-api.opensea.io/api/v1/assets?owner=0xee5c283aa0e67eb60f5a85bd4acef0c39f19f228");
+        const data = await response.json();
+        setAssetList(data)
+    }
+    useEffect(()=>{
+        fetchMyAPI()
+    },[])
+    useEffect(()=>{
+         if(assetList){
+             console.log(assetList.assets[0])
+         }
+     },[assetList])
     return (
         <>
             <div className="fractionalize">
-                <Navbar/>
+                <Navbar />
                 <div className="banner">
                     <div className="fra-left">
-                        <h1 className="left-title">
-                            Select NFTs to Fractionalize
-                    </h1>
-                        <p className="left-details">
-                            Choose the NFT(s) to send to a new vault, select your desired fraction type,
-                            set your vault’s details, then continue to fractionalize. Once complete,
-                            all fractions will appear in your wallet. Be aware, you cannot add to the
-                            NFTs in a vault once created. Read our guides for more information.
-                    </p>
-                        <h3 className="connect-text">
-                            Please click <span style={{ color: "#D4FF72", textDecoration: "underline" }}>here</span> and connect your wallet.
-                    </h3>
+                        {
+                            (address != null) ?
+                               <p>hello</p>
+                            :
+                            <div className="card-container">
+                               {assetList && assetList.assets.map((item) => {
+                                  return (
+                                    <div className="asset-card">
+                                      <img src={item.image_url} alt="asset" className="card-img" />
+                                      <p className="card-name">{item.name}</p>
+                                      <p className="card-desc">{item.description}</p>
+                                    </div> 
+                                );
+                               })}
+                            </div>
+                        }
                     </div>
                     <div className="fra-right">
-                        {/* <div className="right-toggler">
-                        <div className={protocol20 ? "toggle-btn current-btn" : "toggle-btn"} onClick={() => setProtocol20(true)}>
-                            ERC - 20
-                    </div>
-                        <div className={protocol20 ? "toggle-btn " : "toggle-btn current-btn"} onClick={() => setProtocol20(false)}>
-                            ERC - 1155
-                    </div>
-                    </div> */}
                         <div className="vault-details">
                             <p className="vaultdetail">Vault details</p>
                             <p className="input-lable">Name</p>
@@ -56,16 +70,6 @@ function Fractionalize() {
                             <input type="text" className="input-text" placeholder="0.0" />
                             <p className="input-lable">ANNUAL MANAGEMENT FEE</p>
                             <Box sx={{ width: 380 }}>
-                                {/* <Slider
-                                aria-label="Temperature"
-                                defaultValue={30}
-                                getAriaValueText={valuetext}
-                                valueLabelDisplay="auto"
-                                step={10}
-                                marks
-                                min={10}
-                                max={110}
-                            /> */}
                                 <Slider defaultValue={30} step={10} marks min={10} max={110} sx={{ color: "#F4FFDD" }} />
                             </Box>
                             <div className="perc-label">
@@ -75,7 +79,6 @@ function Fractionalize() {
                             <button className="continue-btn">Continue</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

@@ -7,18 +7,25 @@
     grid-template-columns: 6rem 1fr 3fr 2fr 6rem;
     z-index: 999 !important;
 }
+.connectaddr{
+  width: 120px;
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+}
 .logo{
-    grid-column: 2/3;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-family: Aladin;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 39px;
-    font-weight: 500;
-    color: #FFFFFF;
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Aladin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 39px;
+  font-weight: 500;
+  color: #FFFFFF;
 }
 .connectbtn{
   background-image: url('./images/connectbg.png');
