@@ -26,9 +26,7 @@ function Fractionalize() {
         console.log(web3);
     },[web3])
     useEffect(()=>{
-         if(assetList){
-             console.log(assetList.assets[0])
-         }
+       
      },[assetList])
     return (
         <>
@@ -41,7 +39,7 @@ function Fractionalize() {
                                <p>hello</p>
                             :
                             <div className="card-container">
-                               {assetList && assetList.assets.map((item) => {
+                               {assetList && assetList?.assets?.map((item) => {
                                   return (
                                     <div className="asset-card">
                                       <img src={item.image_url} alt="asset" className="card-img" />
