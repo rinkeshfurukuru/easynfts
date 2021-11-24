@@ -67,6 +67,9 @@ function Fractionalize() {
       .send({ from: web3.address })
       .on("transactionHash", (hash) => {
         console.log(hash);
+      }).on("receipt",(res)=>{
+          console.log(res.events.NFTListed.returnValues.ListingAddress);
+          //TODO :: Next step for listed NFT
       });
   };
 
