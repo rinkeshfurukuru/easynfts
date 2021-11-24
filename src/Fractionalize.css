@@ -188,6 +188,7 @@
 }
 .continue-btn{
     width: 208px;
+    cursor: pointer;
     height: 56px;
     background: linear-gradient(276.67deg, #105B22 11.84%, #7AAB2D 52.16%, #FAD551 95.08%);
     border-radius: 5px;

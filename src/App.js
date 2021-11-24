@@ -5,6 +5,7 @@ import TopVaults from "./TopVaults";
 import { Web3Context } from "./Context/Web3Context";
 import getWeb3 from "./GetWeb3";
 import { useEffect, useState } from "react";
+import { WalletType } from "./Interfaces/walletInterface";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const getWeb3Instance = async () => {
-      const provider = await getWeb3(0);
+      const provider = await getWeb3(WalletType.MetaMask);
       
       const ethereum = window.ethereum;
       if (ethereum) {

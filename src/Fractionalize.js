@@ -59,7 +59,7 @@ function Fractionalize() {
       .listNFT(
         selectNFTDetails.address,
         selectNFTDetails.token_id,
-        selectNFTDetails.supply,
+        web3.provider.utils.toWei( selectNFTDetails.supply, "ether"),
         web3.provider.utils.toWei(selectNFTDetails.reserve_price, "ether"),
         selectNFTDetails.name,
         selectNFTDetails.symbol

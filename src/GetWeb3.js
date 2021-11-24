@@ -1,5 +1,6 @@
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import { WalletType } from "./Interfaces/walletInterface";
 
 const getWeb3 = (provider_nos) =>
   new Promise(async (resolve, reject) => {
@@ -7,7 +8,7 @@ const getWeb3 = (provider_nos) =>
     var provider;
 
     //  Enable session (triggers QR Code modal)
-    if (provider_nos === 1) {
+    if (provider_nos === WalletType.WalletConnect) {
       try {
         provider = new WalletConnectProvider({
           rpc: {
@@ -23,7 +24,7 @@ const getWeb3 = (provider_nos) =>
       } catch (e) {
       
       }
-    } else if (provider_nos === 0) {
+    } else if (provider_nos === WalletType.MetaMask) {
       
       provider = window.ethereum;
     }
