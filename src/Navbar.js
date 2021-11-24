@@ -1,7 +1,7 @@
 import './Navbar.css';
 import { GiHamburgerMenu } from "react-icons/gi"
 import React, { useContext } from "react";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CopyToClipboard from "react-copy-to-clipboard";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import { Web3Context } from './Context/Web3Context';

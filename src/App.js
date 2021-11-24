@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [web3, setWeb3] = useState(null);
-  const [address, setAddress] = useState();
+  
 
   useEffect(() => {
     const getWeb3Instance = async () => {
@@ -17,10 +17,10 @@ function App() {
       
       const ethereum = window.ethereum;
       if (ethereum) {
-        setAddress(window.ethereum.selectedAddress);
+        
         setWeb3({provider : provider,address:window.ethereum.selectedAddress});
         ethereum.on("accountsChanged", function (accounts) {
-          setAddress(accounts[0]);
+          setWeb3({provider : provider,address:accounts[0]});
         });
       }
     };
