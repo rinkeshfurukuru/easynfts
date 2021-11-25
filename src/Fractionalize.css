@@ -338,3 +338,10 @@
     align-items: center;
     justify-content: center;
 }
+
+.status-wrapper{
+    display: flex;
+    border: 1px solid #cfcfcf;
+    padding:10px;
+    border-radius: 5px;
+}

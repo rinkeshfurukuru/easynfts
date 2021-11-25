@@ -7,9 +7,13 @@ import Navbar from "./Navbar";
 import ABI from "../src/ABI/fraction.json";
 import { Web3Context } from "./Context/Web3Context";
 import { fractionalize, Ierc721 } from "./ABI/const";
+import TransitionsModal from "./Components/Modal";
 
 function Fractionalize() {
   const [assetList, setAssetList] = useState();
+  const [status,setStatus] = useState("Pending...");
+  const [trxHash,setTrxHash] = useState("Loading...");
+  const [listingAddress,setListingAddress] = useState("");
   const [selectNFTDetails, setSelectedNFTDetails] = useState({
     name: undefined,
     supply: undefined,
@@ -68,8 +72,13 @@ function Fractionalize() {
       .on("transactionHash", (hash) => {
         console.log(hash);
       }).on("receipt",(res)=>{
-          console.log(res.events.NFTListed.returnValues.ListingAddress);
-          //TODO :: Next step for listed NFT
+        console.log(res);
+        console.log(res.events.NFTListed.returnValues.ListingAddress);// This is the listed NFT address
+        setListingAddress(res.events.NFTListed.returnValues.ListingAddress);
+
+        setStatus("Confirmed.")
+        setTrxHash(res.transactionHash)
+        handleOpen();
       });
   };
 
@@ -84,8 +93,13 @@ function Fractionalize() {
       .on("receipt", (tx) => {
         console.log(tx);
         ListSelectedNft();
+    
       });
   };
+
+  const [open, setOpen] = useState();
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -182,20 +196,14 @@ function Fractionalize() {
                   }));
                 }}
               />
-              {/* <p className="input-lable">ANNUAL MANAGEMENT FEE</p>
-                            <Box sx={{ width: 380 }}>
-                                <Slider defaultValue={30} step={10} marks min={10} max={110} sx={{ color: "#F4FFDD" }} />
-                            </Box>
-                            <div className="perc-label">
-                                <p>0%</p>
-                                <p>10%</p>
-                            </div> */}
+              
               <button className="continue-btn" onClick={approveNft}>
                 Continue
               </button>
             </div>
           </div>
         </div>
+        <TransitionsModal open={open} handleClose={handleClose} handleOpen={handleOpen} status={status} trxHash={trxHash} listingAddress={listingAddress} />
       </div>
     </>
   );
