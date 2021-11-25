@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@100&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Inter&family=Montserrat:wght@200&family=Poppins:wght@100&family=Quicksand&family=Roboto&family=Rubik:wght@300&display=swap');
+.main-div{
+    width: 100%;
+    height: 5rem;
+    display: grid;
+    grid-template-columns: 6rem 1fr 3fr 2fr 6rem;
+    z-index: 999 !important;
+}
+.connectaddr{
+  width: 120px;
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+}
+.logo{
+  grid-column: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Aladin;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 39px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.connectbtn{
+  background-image: url('./images/connectbg.png');
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  border: none;
+  width: 208px !important;
+  height: 56px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.connectbtntxt{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px !important;
+  line-height: 10px !important;
+  color: #000000 !important;
+}
+.menu-link{
+    grid-column: 3/3;
+    padding-left: 200px;
+}
+.menu-link ul{
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+} 
+.menu-link ul li{
+    font-size: 1.8rem;
+}
+.menu-link ul li:hover > a{
+    transform-origin: left;
+    color: rgb(211, 211, 247);
+    text-decoration: underline;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.menu-link ul li a{
+    transition: 0.5s;
+    cursor: pointer;
+    font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 30px;
+color: #FFFFFF;
+}   
+  .mobile-menu-link {
+    background-color: #63DCA1;
+    height: 20rem;
+    display: grid;
+    grid-column: 5/5;
+    align-items: center;
+    padding-left: 3rem;
+    transition: all 2s linear;
+    transform-origin: top;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      z-index: 100;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      cursor: pointer;
+  }
+
+  .mobile-menu-link ul {
+    height: 20rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+    cursor: pointer;
+  }
+
+  .mobile-menu-link ul li:first-child {
+    transition-delay: 0.2s;
+  }
+a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  li {
+    list-style: none;
+    cursor: pointer;
+  }
+  .hamburger-menu {
+    display: none;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+  .social-media {
+    /* background-color: black; */
+    grid-column: 4/5;
+  }
+  
+  .social-media ul {
+    height: 10rem;
+    display: grid;
+    grid-template-columns: 3fr repeat(3, 1fr);
+    align-items: center;
+  }
+  
+  .social-media ul li:first-child {
+    grid-column: 2/3;
+  }
+  
+  .social-media ul li {
+    font-size: 1.8rem;
+  }
+  
+  .social-media .hamburger-menu {
+    display: none;
+  }
+  /* responsive css style  */
+  @media (max-width: 1080px) {
+    .main-nav {
+      height: 8rem;
+      grid-template-columns: 2rem 3fr 4fr 2rem;
+    }
+  
+    .logo,
+    .menu-link ul,
+    .social-media ul {
+      height: 6rem;
+    }
+  }
+  
+  /* responsive css style  */
+  @media (max-width: 998px) {
+    .main-nav {
+      height: 7rem;
+      grid-template-columns: 2rem 2fr 5fr 2rem;
+    }
+  
+    .menu-link {
+      display: none;
+    }
+  
+    .logo,
+    .social-media ul {
+      height: 5rem;
+    }
+  
+    .mobile-menu-link {
+      grid-column: 2/4;
+      position: relative;
+      z-index: 99;
+    }
+  
+    .mobile-menu-link {
+      background-color: #63DCA1;
+      height: 20rem;
+      display: grid;
+      grid-column: 1/5;
+      align-items: center;
+      padding-left: 3rem;
+      transition: all 2s linear;
+      transform-origin: top;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        z-index: 99;
+        margin-top: -30px;
+    }
+  
+    .mobile-menu-link ul {
+      height: 15rem;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .mobile-menu-link ul li:first-child {
+      transition-delay: 0.2s;
+    }
+  
+    .social-media {
+      grid-row: 1/2;
+      grid-column: 3/5;
+      justify-items: end;
+      align-items: center;
+      transition: all 2s linear;
+    }
+  
+    .social-media .social-media-desktop {
+      height: 0;
+      display: none;
+    }
+  
+    .social-media {
+      height: 7rem;
+      display: flex;
+      justify-self: end;
+      align-items: center;
+    }
+  
+    .social-media .hamburger-menu {
+      display: block;
+      font-size: 2.5rem;
+    }
+    .main-div{
+        background-color: #63DCA1;
+    }
+  }
+  
+  @media (max-width: 798px) {
+    .main-nav {
+      height: 6rem;
+      grid-template-columns: 1rem 3fr 1fr 1rem;
+    }
+  
+    .logo,
+    .social-media ul {
+      height: 5rem;
+    }
+  
+    .social-media {
+      height: 6rem;
+      display: flex;
+      justify-self: end;
+      align-items: center;
+    }
+  
+    .social-media .hamburger-menu {
+      display: block;
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 520px) {
+    .main-div {
+      height: 5rem;
+      grid-template-columns: 1rem 4fr 2fr 1rem;
+    }
+  
+    .logo,
+    .social-media ul {
+      height: 5rem;
+    }
+  
+    .logo h2 {
+      font-size: 1.5rem;
+    }
+  
+    .social-media {
+      height: 6rem;
+      display: flex;
+      justify-self: end;
+      align-items: center;
+    }
+  
+    .social-media .hamburger-menu {
+      display: block;
+      font-size: 2rem;
+    }
+  
+    /* hero section  */
+  
+    .hero-section h1 {
+      font-size: 3.8rem;
+    }
+
+  .mobile-menu-link ul {
+    padding-left: unset;
+  }
+  }
